@@ -19,7 +19,7 @@ def hello(name):
 
 @app.route('/hello/<name>/<int:num>')
 def hello_num(name, num):
-    return f"Hello, {name * num}!"
+    return render_template("hello.html", name=name, num=num)
 
 @app.route('/user/<username>/<id>')
 def show_user_profile(username, id):
