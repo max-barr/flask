@@ -1,5 +1,6 @@
-from flask import Flask, redirect, render_template, request
+from flask import Flask, redirect, render_template, request, session
 app = Flask(__name__)
+app.secret_key = 'keykey123'
 
 @app.route('/')
 def index():
@@ -9,7 +10,13 @@ def index():
 def create_user():
     print("Got Post Info")
     print(request.form)
-    return redirect('/')
+    session['name'] = request.form['name']
+    session['email'] = request.form['email']
+    return redirect('/show')
+
+@app.route('/show')
+def show_user():
+    return render_template('show.html')
 
 if __name__ == "__main__":
     app.run(debug=True, host='localhost', port=5001)
