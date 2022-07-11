@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit your info</title>
+</head>
+<body>
+    <form action="/process" method="post">
+        <p>
+            <label for="name">Name:</label>
+            <input type="text" name="name">
+        </p>
+        <p>
+            <label for="location">Location:</label>
+            <select name="location" id="location">
+                <option value="Portland">Portland</option>
+                <option value="Dallas">Dallas</option>
+                <option value="Miami">Miami</option>
+                <option value="New York">New York</option>
+            </select>
+        </p>
+        <p>
+            <label for="food">Favorite Food:</label>
+            <select name="food" id="food">
+                <option value="Pizza">Pizza</option>
+                <option value="Salad">Salad</option>
+                <option value="Steak">Steak</option>
+                <option value="Peanut Butter">Peanut Butter</option>
+            </select>
+        </p>
+        <p>
+            <label for="comment">Comment (optional):</label><br>
+            <textarea name="comment" id="comment" cols="50" rows="10"></textarea>
+        </p>
+        <p>
+            <input type="submit" value="Go!">
+        </p>
+    </form>
+</body>
+</html>
