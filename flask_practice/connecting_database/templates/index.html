@@ -7,6 +7,24 @@
     <title>DB Connection</title>
 </head>
 <body>
+    <h1>Add a friend</h1>
+    <form action="/create_friend" method="POST">
+        <p>
+            <label for="fname">First Name:</label>
+            <input type="text" name="fname">
+        </p>
+        <p>
+            <label for="lname">Last Name:</label>
+            <input type="text" name="lname">
+        </p>
+        <p>
+            <label for="occ">Occupation:</label>
+            <input type="text" name="occ">
+        </p>
+        <p>
+            <input type="submit" value="Add Friend">
+        </p>
+    </form>
     <h1>My friends:</h1>
     {% for one_friend in all_friends %}
         <p>First Name: {{ one_friend.first_name }}</p>
