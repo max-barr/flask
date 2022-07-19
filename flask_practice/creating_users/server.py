@@ -11,6 +11,11 @@ def index():
     print(users)
     return render_template("read.html")
 
+@app.route("/create_user", methods=["POST"])
+def save_user():
+    # First we make a data dictionary from our request.form coming from our template.
+    # The keys in data need to line up exactly with the variables in our query string.
+
 
 if __name__ == "__main__"
     app.run(debug=True, host='localhost', port=5001)
