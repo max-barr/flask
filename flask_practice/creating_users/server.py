@@ -1,3 +1,4 @@
+from crypt import methods
 from flask import Flask, render_template, request, redirect
 #import the class
 from user import User
@@ -29,6 +30,39 @@ def save_user():
     }
     User.save(data)
     return redirect('/users')
+
+# Show User GET request
+@app.route("/users/show/<int:id>")
+def show_user(id):
+    user = User.get_one(id)
+    return render_template("show.html", user = user)
+
+# Edit User GET request
+@app.route("/users/edit/<int:id>")
+def edit_user(id):
+    user = User.get_one(id)
+    return render_template("edit.html", user = user)
+
+# Update User POST request
+@app.route("/users/update/<int:id>", methods=["POST"])
+def update_user(id):
+    data = {
+        "id" : id,
+        "fname" : request.form["fname"],
+        "lname" : request.form["lname"],
+        "email" : request.form["email"]
+    }
+    User.update(data)
+    return redirect("/users")
+
+# Delete user POST request
+@app.route("/users/destroy/<int:id>")
+def destroy(id):
+    data = {
+        "id" : id
+    }
+    User.delete(data)
+    return redirect("/users")
 
 
 if __name__ == "__main__":
